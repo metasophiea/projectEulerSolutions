@@ -1,0 +1,36 @@
+// -std=c++11
+#include <iostream>
+
+unsigned int getDivisorCount(unsigned int value){
+	unsigned int count = 0;
+	for(unsigned int a = (value/2)+1; a > 0; a--){
+		if(value%a == 0){ 
+			count++;
+		}
+	}
+	return count;
+}
+
+unsigned int getTriangleNumber(unsigned int a){
+	unsigned int ans = 0;
+	for(unsigned int b = 0; b <= a; b++){ ans += b; }
+	return ans;
+}
+
+unsigned int function(){
+	unsigned int div = 0, tri = 0;
+	for(unsigned int a = 10000; a < 20000; a++){
+		//std::cout << a << " | ";
+		tri = getTriangleNumber(a);// std::cout << tri << " | ";
+		div = getDivisorCount(tri); //std::cout << div << std::endl;
+		if(div >= 500){return div;}
+	}
+	
+	return 0;
+}
+
+int main(int argumentCount, char *arguments[]){
+	std::cout << "Hello" << std::endl;
+	std::cout << function() << std::endl;
+	return 0;
+}
